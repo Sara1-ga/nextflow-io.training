@@ -23,7 +23,7 @@ _Per una formazione sull'uso dei channels per collegare i passaggi in un flusso 
 
 ## 0. Riscaldamento: Run `hello-channels.nf`
 
-Utilizzeremo lo script del flusso di lavoro `hello-channels.nf` come punto di partenza.
+Utilizzeremo lo script del workflow `hello-channels.nf` come punto di partenza.
 È equivalente allo script prodotto lavorando sulla Parte 1 di questo corso di formazione.
 
 Per assicurarti che tutto funzioni, esegui lo script una volta prima di apportare modifiche:
