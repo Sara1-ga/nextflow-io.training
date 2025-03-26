@@ -345,7 +345,7 @@ Facciamolo partire :
 nextflow run hello-channels.nf
 ```
 
-Tornando alla vista riepilogativa, l'output appare di nuovo così:
+Riepilogando, l'output appare di nuovo così:
 
 ```console title="Output" linenums="1"
  N E X T F L O W   ~  version 24.10.0
