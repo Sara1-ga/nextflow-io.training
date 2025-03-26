@@ -8,7 +8,7 @@
 :fontawesome-brands-youtube:{ .youtube } Guarda l'intera playlist su Nextflow YouTube channel](https://www.youtube.com/playlist?list=PLPZ8WHdZGxmXiHf8B26oB_fTfoKQdhlik).
 ///
 
-Nella Parte 1 di questo corso (Hello World), ti abbiamo mostrato come fornire un input variabile a un processo specificando l'input direttamente nella chiamata al processo: `sayHello(params.greet)`.
+Nella Parte 1 di questo corso (Hello World), ti abbiamo mostrato come fornire una variabile di input a un processo specificando l'input direttamente nella chiamata al processo: `sayHello(params.greet)`.
 Si è trattato di un approccio volutamente semplificato.
 In pratica, questo approccio presenta notevoli limitazioni, in particolare perché funziona solo nei casi molto semplici in cui si desidera eseguire il processo una sola volta, su un singolo valore.
 Nella maggior parte dei casi d'uso realistici del workflow, vogliamo elaborare più valori (ad esempio, dati sperimentali per più campioni), quindi abbiamo bisogno di un modo più sofisticato per gestire gli input.
