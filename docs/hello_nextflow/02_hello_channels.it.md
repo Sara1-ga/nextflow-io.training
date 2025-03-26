@@ -51,13 +51,13 @@ Se tutto questo ha funzionato, sei pronto per imparare a usare i canali.
 
 ---
 
-## 1. Fornire input variabili tramite un canale in modo esplicito
+## 1. Fornire variabili di input tramite un canale in modo esplicito
 
 Creeremo un **canale** per passare l'input della variabile al processo `sayHello()` invece di affidarci alla gestione implicita, che presenta alcune limitazioni.
 
 ### 1.1. Creare un canale di input
 
-Esistono diverse **fabbricazioni di canali** che possiamo usare per impostare un canale.
+Esistono diverse **factory channels** che possiamo usare per impostare un canale.
 Per semplificare le cose per ora, useremo la fabbrica di  channels più elementare, chiamata `Channel.of`, che creerà un canale contenente un singolo valore.
 Funzionalmente sarà simile a come lo avevamo impostato prima, ma invece di far creare un canale implicitamente a Nextflow, lo stiamo facendo esplicitamente ora.
 
