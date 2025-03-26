@@ -231,7 +231,7 @@ Di default, il sistema di registrazione ANSI scrive la registrazione da più chi
 Fortunatamente, possiamo disabilitare questo comportamento per vedere l'elenco completo delle chiamate di processo.
 #### 2.1.3. Eseguire nuovamente il comando con l'opzione `-ansi-log false`
 
-Per espandere la registrazione in modo da visualizzare una riga per chiamata di processo, aggiungere `-ansi-log false` al comando.
+Per espandere la registrazione in modo da visualizzare gli output per ogni chiamata di processo, aggiungere `-ansi-log false` al comando.
 
 ```bash
 nextflow run hello-channels.nf -ansi-log false
