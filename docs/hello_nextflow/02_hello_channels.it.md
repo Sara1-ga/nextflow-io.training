@@ -13,11 +13,11 @@ Si è trattato di un approccio volutamente semplificato.
 In pratica, questo approccio presenta notevoli limitazioni, in particolare perché funziona solo nei casi molto semplici in cui si desidera eseguire il processo una sola volta, su un singolo valore.
 Nella maggior parte dei casi d'uso realistici del flusso di lavoro, vogliamo elaborare più valori (ad esempio, dati sperimentali per più campioni), quindi abbiamo bisogno di un modo più sofisticato per gestire gli input.
 Ecco a cosa servono i **canali** di Nextflow.
-I canali sono code progettate per gestire gli input in modo efficiente e spostarli da una fase all'altra nei flussi di lavoro multi-step, offrendo al contempo parallelismo integrato e molti altri vantaggi.
+I channels sono code progettate per gestire gli input in modo efficiente e spostarli da una fase all'altra nei flussi di lavoro multi-step, offrendo al contempo parallelismo integrato e molti altri vantaggi.
 In questa parte del corso imparerai come utilizzare un canale per gestire più input provenienti da diverse fonti.
 Imparerai anche ad usare gli  **operatori** per trasformare i contenuti del canale in base alle tue esigenze.
 
-_Per una formazione sull'uso dei canali per collegare i passaggi in un flusso di lavoro multi-step, vedere la Parte 3 di questo corso._
+_Per una formazione sull'uso dei channels per collegare i passaggi in un flusso di lavoro multi-step, vedere la Parte 3 di questo corso._
 
 ---
 
@@ -58,7 +58,7 @@ Creeremo un **canale** per passare l'input della variabile al processo `sayHello
 ### 1.1. Creare un canale di input
 
 Esistono diverse **fabbricazioni di canali** che possiamo usare per impostare un canale.
-Per semplificare le cose per ora, useremo la fabbrica di canali più elementare, chiamata `Channel.of`, che creerà un canale contenente un singolo valore.
+Per semplificare le cose per ora, useremo la fabbrica di  channels più elementare, chiamata `Channel.of`, che creerà un canale contenente un singolo valore.
 Funzionalmente sarà simile a come lo avevamo impostato prima, ma invece di far creare un canale implicitamente a Nextflow, lo stiamo facendo esplicitamente ora.
 
 Questa è la riga di codice che utilizzeremo:
@@ -73,7 +73,7 @@ Questo crea un canale denominato `greeting_ch` utilizzando il factory `Channel.o
 
   We are temporarily switching back to hardcoded strings instead of using a CLI parameter for the sake of readability. We'll go back to using CLI parameters once we've covered what's happening at the level of the channel.
 
-Nel blocco del flusso di lavoro, aggiungi il codice della factory del canale:
+Nel blocco del workflow, aggiungi il codice della factory del canale:
 
 _Prima:_
 
@@ -104,7 +104,7 @@ Questa operazione non è ancora funzionale poiché non abbiamo ancora commutato 
 
 Ora dobbiamo effettivamente collegare il nostro canale appena creato alla chiamata di processo `sayHello()`, sostituendo il parametro CLI che stavamo fornendo direttamente in precedenza.
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow, apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -134,9 +134,9 @@ workflow {
 
 Questo indica a Nextflow di eseguire il processo `sayHello` sui contenuti del canale `greeting_ch`.
 
-Ora il nostro flusso di lavoro è correttamente funzionante; è l'equivalente esplicito della scrittura `sayHello('Hello Channels!')`.
+Ora il nostro workflow è correttamente funzionante; è l'equivalente esplicito della scrittura `sayHello('Hello Channels!')`.
 
-### 1.3. Eseguire nuovamente il comando del flusso di lavoro
+### 1.3. Eseguire nuovamente il comando del workflow
 
 Eseguamolo !
 
@@ -173,22 +173,22 @@ Sai come utilizzare una channel factory di base per fornire un input a un proces
 
 ### Cosa succede dopo?
 
-Scopri come utilizzare i canali per far sì che il flusso di lavoro esegua l'iterazione su più valori di input.
+Scopri come utilizzare i channels per far sì che il workflow esegua l'iterazione su più valori di input.
 
 ---
 
-## 2. Modifica il flusso di lavoro per eseguire più valori di imput
+## 2. Modifica il workflow  per eseguire più valori di imput
 
-I flussi di lavoro in genere vengono eseguiti su batch di input che devono essere elaborati in blocco, quindi vogliamo aggiornare il flusso di lavoro in modo che accetti più valori di input.
+I flussi di lavoro in genere vengono eseguiti su batch di input che devono essere elaborati in blocco, quindi vogliamo aggiornare il workflow in modo che accetti più valori di input.
 
 ### 2.1. Carica più saluti nel canale di input
 
-Convenientemente, la factory di canali `Channel.of()` che abbiamo utilizzato è abbastanza felice di accettare più di un valore, quindi non abbiamo bisogno di modificarla affatto.
+Convenientemente, la factory di channels `Channel.of()` che abbiamo utilizzato è abbastanza felice di accettare più di un valore, quindi non abbiamo bisogno di modificarla affatto.
 Dobbiamo solo caricare più valori nel canale.
 
 #### 2.1.1. Aggiungi altri saluti
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow, apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -247,8 +247,8 @@ Launching `hello-channels.nf` [pensive_poitras] DSL2 - revision: 778deadaea
 [c1/097679] Submitted process > sayHello (2)
 ```
 
-Molto meglio, almeno per un flusso di lavoro semplice.
-Per un flusso di lavoro complesso o un gran numero di input, avere l'elenco completo in uscita sul terminale potrebbe risultare un po' opprimente, quindi potresti non scegliere di usare `-ansi-log false` in quei casi.
+Molto meglio, almeno per un workflow  semplice.
+Per un workflow complesso o un gran numero di input, avere l'elenco completo in uscita sul terminale potrebbe risultare un po' opprimente, quindi potresti non scegliere di usare `-ansi-log false` in quei casi.
 !!! nota
 
 The way the status is reported is a bit different between the two logging modes.
@@ -417,7 +417,7 @@ Il buon senso suggerisce che dovremmo essere in grado di passare semplicemente u
 
 #### 3.1.1. Impostare la variabile di input
 
-Prendiamo la variabile `greetings_array` che abbiamo appena immaginato e rendiamola realtà aggiungendola al blocco del flusso di lavoro:
+Prendiamo la variabile `greetings_array` che abbiamo appena immaginato e rendiamola realtà aggiungendola al blocco del workflow :
 
 _Prima:_
 
@@ -442,9 +442,9 @@ workflow {
 
 #### 3.1.2 Imposta la matrice dei saluti come input per la fabbrica dei canali
 
-Sostituiremo i valori `'Hello','Bonjour','Holà'` attualmente codificati nella factory dei canali con `greetings_array` che abbiamo appena creato.
+Sostituiremo i valori `'Hello','Bonjour','Holà'` attualmente codificati nella factory dei channels con `greetings_array` che abbiamo appena creato.
 
-Nel blocco del flusso di lavoro, apporta la seguente modifica:
+Nel blocco del workflow , apporta la seguente modifica:
 _Prima:_
 
 ```groovy title="hello-channels.nf" linenums="32"
@@ -459,7 +459,7 @@ _Dopo:_
     greeting_ch = Channel.of(greetings_array)
 ```
 
-#### 3.1.3. Eseguire il flusso di lavoro
+#### 3.1.3. Eseguire il workflow
 Proviamo a eseguire questo:
 
 ```bash
@@ -499,7 +499,7 @@ Se scorri l'[elenco degli operatori](https://www.nextflow.io/docs/latest/referen
 
 Per applicare l'operatore `flatten()` al nostro canale di input, lo aggiungiamo alla dichiarazione della factory del canale.
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow, apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -523,7 +523,7 @@ Qui abbiamo aggiunto l'operatore sulla riga successiva per una migliore leggibil
 Potremmo eseguirlo subito per testare se funziona, ma già che ci siamo, aggiungeremo anche un paio di operatori [`view()`](https://www.nextflow.io/docs/latest/reference/operator.html#view), che ci consentono di ispezionare il contenuto di un canale.
 Puoi pensare a `view()` come a uno strumento di debug, come un'istruzione `print()` in Python, o il suo equivalente in altri linguaggi.
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow , apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -557,9 +557,9 @@ In questo esempio, `$greeting` rappresenta ogni singolo elemento caricato in un 
 
     We prefer to be explicit to aid code clarity, as such the `$it` syntax is discouraged and will slowly be phased out of the Nextflow language.
 
-#### 3.2.3. Eseguire il flusso di lavoro
+#### 3.2.3. Eseguire il workflow
 
-Infine, puoi provare a eseguire nuovamente il flusso di lavoro!
+Infine, puoi provare a eseguire nuovamente il workflow !
 
 ```bash
 nextflow run hello-channels.nf
@@ -583,7 +583,7 @@ After flatten: Holà
 Come puoi vedere, otteniamo una singola istruzione `Before flatten:` perché a quel punto il canale contiene un elemento, l'array originale.
 Quindi otteniamo tre istruzioni `After flatten:` separate, una per ogni saluto, che ora sono elementi individuali nel canale.
 
-Ciò significa che ogni elemento può ora essere elaborato separatamente dal flusso di lavoro.
+Ciò significa che ogni elemento può ora essere elaborato separatamente dal workflow.
 
 !!! tip
 
@@ -603,7 +603,7 @@ Sai come usare un operatore come `flatten()` per trasformare il contenuto di un 
 
 ### Cosa c'è dopo ?
 
-Scopri come far sì che il flusso di lavoro accetti un file come origine dei valori di input.
+Scopri come far sì che il workflow accetti un file come origine dei valori di input.
 
 ---
 
@@ -618,21 +618,21 @@ Bonjour
 Holà
 ```
 
-Ora dobbiamo modificare il nostro flusso di lavoro per leggere i valori da un file di questo tipo.
+Ora dobbiamo modificare il nostro workflow per leggere i valori da un file di questo tipo.
 
 ### 4.1. Modificare lo script per aspettarsi un file CSV come origine dei saluti
 
 Per iniziare, dovremo apportare due modifiche chiave allo script:
 
 - Cambiare il parametro di input per puntare al file CSV
-- Passare a una fabbrica di canali progettata per gestire un file
+- Passare a una fabbrica di channels progettata per gestire un file
 
 #### 4.1.1. Cambia il parametro di input per puntare al file CSV
 
 Ricordi il parametro `params.greeting` che abbiamo impostato nella Parte 1?
 Lo aggiorneremo per puntare al file CSV contenente i nostri saluti.
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow , apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -652,12 +652,12 @@ _Dopo:_
 params.greeting = 'greetings.csv'
 ```
 
-#### 4.1.2 Passare a una fabbrica di canali progettata per gestire un file
+#### 4.1.2 Passare a una factory di channels progettata per gestire un file
 
-Poiché ora vogliamo usare un file invece di semplici stringhe come input, non possiamo usare la factory di canali `Channel.of()` di prima. 
+Poiché ora vogliamo usare un file invece di semplici stringhe come input, non possiamo usare la factory di channels `Channel.of()` di prima. 
 Dobbiamo passare all'uso di una nuova factory di canali, [`Channel.fromPath()`](https://www.nextflow.io/docs/latest/reference/channel.html#channel-path), che ha alcune funzionalità integrate per gestire i percorsi dei file.
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow, apportare la seguente modifica al codice:
 _Prima:_
 
 ```groovy title="hello-channels.nf" linenums="31"
@@ -673,9 +673,9 @@ _Dopo:_
     greeting_ch = Channel.fromPath(params.greeting)
 ```
 
-#### 4.1.3. Eseguire il flusso di lavoro
+#### 4.1.3. Eseguire il workflow
 
-Proviamo a eseguire il flusso di lavoro con la nuova fabbrica di canali e il file di input.
+Proviamo a eseguire il workflow con la nuova fabbrica di channels e il file di input.
 
 ```bash
 nextflow run hello-channels.nf
@@ -718,7 +718,7 @@ Esaminando nuovamente l'elenco degli operatori, troviamo [`splitCsv()`](https://
 
 Per applicare l'operatore, lo aggiungiamo alla riga della factory del canale come in precedenza.
 
-Nel blocco del flusso di lavoro, apportiamo la seguente modifica al codice:
+Nel blocco del workflow, apportiamo la seguente modifica al codice:
 
 _Prima:_
 
@@ -739,9 +739,9 @@ greeting_ch = Channel.fromPath(params.greeting)
 
 Come puoi vedere, includiamo anche le istruzioni di visualizzazione prima/dopo.
 
-#### 4.2.2. Eseguire nuovamente il flusso di lavoro
+#### 4.2.2. Eseguire nuovamente il workflow
 
-Proviamo a eseguire il flusso di lavoro con l'aggiunta della logica di analisi CSV.
+Proviamo a eseguire il workflow con l'aggiunta della logica di analisi CSV.
 
 ```bash
 nextflow run hello-channels.nf
@@ -799,7 +799,7 @@ Applichiamolo alla nostra analisi CSV.
 
 #### 4.3.1. Applicare `map()` al canale
 
-Nel blocco del flusso di lavoro, apportare la seguente modifica al codice:
+Nel blocco del workflow , apportare la seguente modifica al codice:
 
 _Prima:_
 
@@ -825,7 +825,7 @@ greeting_ch = Channel.fromPath(params.greeting)
 
 Ancora una volta includiamo un'altra chiamata `view()` per confermare che l'operatore faccia ciò che ci aspettiamo.
 
-#### 4.3.2. Eseguire il flusso di lavoro ancora una volta
+#### 4.3.2. Eseguire il workflow ancora una volta
 
 Ripetiamolo ancora una volta:
 
