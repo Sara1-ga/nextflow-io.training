@@ -516,7 +516,7 @@ _Dopo:_
                          .flatten()
 ```
 
-Qui abbiamo aggiunto l'operatore sulla riga successiva per una migliore leggibilità, ma puoi aggiungere operatori sulla stessa riga della fabbrica del canale se preferisci, in questo modo: `greeting_ch = Channel.of(greetings_array).flatten()`
+Qui abbiamo aggiunto l'operatore sulla riga successiva per una migliore leggibilità, ma puoi aggiungere operatori sulla stessa riga della factory del canale se preferisci, in questo modo: `greeting_ch = Channel.of(greetings_array).flatten()`
 
 #### 3.2.2. Aggiungere `view()` per ispezionare il contenuto del canale
 
@@ -882,4 +882,4 @@ Più in generale, hai una conoscenza di base di come Nextflow usa i **canali** p
 ### Cosa c'è dopo ?
 
 Fai una bella pausa, hai lavorato sodo in questo!
-Quando sei pronto, passa alla Parte 3 per imparare come aggiungere altri passaggi e collegarli insieme in un flusso di lavoro appropriato.
+Quando sei pronto, passa alla Parte 3 per imparare come aggiungere altri passaggi e collegarli insieme in un workflow appropriato.
