@@ -565,7 +565,7 @@ Infine, puoi provare a eseguire nuovamente il workflow !
 nextflow run hello-channels.nf
 ```
 
-Questa volta funziona E ci fornisce un'ulteriore panoramica di come appaiono i contenuti del canale prima e dopo aver eseguito l'operatore `flatten()`:
+Questa volta funziona e ci fornisce un'ulteriore panoramica di come appaiono i contenuti del canale prima e dopo aver eseguito l'operatore `flatten()`:
 
 ```console title="Output" linenums="1"
  N E X T F L O W   ~  version 24.10.0
