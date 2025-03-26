@@ -11,8 +11,8 @@
 Nella Parte 1 di questo corso (Hello World), ti abbiamo mostrato come fornire un input variabile a un processo specificando l'input direttamente nella chiamata al processo: `sayHello(params.greet)`.
 Si è trattato di un approccio volutamente semplificato.
 In pratica, questo approccio presenta notevoli limitazioni, in particolare perché funziona solo nei casi molto semplici in cui si desidera eseguire il processo una sola volta, su un singolo valore.
-Nella maggior parte dei casi d'uso realistici del flusso di lavoro, vogliamo elaborare più valori (ad esempio, dati sperimentali per più campioni), quindi abbiamo bisogno di un modo più sofisticato per gestire gli input.
-Ecco a cosa servono i **canali** di Nextflow.
+Nella maggior parte dei casi d'uso realistici del workflow, vogliamo elaborare più valori (ad esempio, dati sperimentali per più campioni), quindi abbiamo bisogno di un modo più sofisticato per gestire gli input.
+Ecco a cosa servono i **channels** di Nextflow.
 I channels sono code progettate per gestire gli input in modo efficiente e spostarli da una fase all'altra nei flussi di lavoro multi-step, offrendo al contempo parallelismo integrato e molti altri vantaggi.
 In questa parte del corso imparerai come utilizzare un canale per gestire più input provenienti da diverse fonti.
 Imparerai anche ad usare gli  **operatori** per trasformare i contenuti del canale in base alle tue esigenze.
