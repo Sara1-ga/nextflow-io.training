@@ -138,7 +138,7 @@ Ora il nostro workflow è correttamente funzionante; è l'equivalente esplicito 
 
 ### 1.3. Eseguire nuovamente il comando del workflow
 
-Eseguamolo !
+Eseguiamolo !
 
 ```bash
 nextflow run hello-channels.nf
