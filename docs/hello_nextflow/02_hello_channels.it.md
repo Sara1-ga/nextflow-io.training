@@ -335,9 +335,9 @@ Assicuratevi di sostituire `output.txt` sia nella definizione di output che nel 
 
    Nella definizione di output, DEVI utilizzare le virgolette doppie attorno all'espressione del nome del file di output (NON le virgolette singole), altrimenti l'operazione non andrà a buon fine.
 
-Ciò dovrebbe produrre un nome di file di output univoco ogni volta che il processo viene chiamato, in modo che possa essere distinto dagli output di altre iterazioni dello stesso processo nella directory di output.
+Ciò dovrebbe produrre un file di output univoco ogni volta che il processo viene chiamato, in modo che possa essere distinto dagli output di altre iterazioni dello stesso processo nella directory di output.
 
-#### 2.2.2. Eseguire il flusso di lavoro
+#### 2.2.2. Eseguire il workflow
 
 Facciamolo partire :
 
