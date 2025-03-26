@@ -161,7 +161,7 @@ Puoi controllare la directory dei risultati per accertarti che il risultato sia 
 Hello Channels!
 ```
 
-Finora stiamo solo modificando progressivamente il codice per aumentare la flessibilità del nostro flusso di lavoro, ottenendo sempre lo stesso risultato finale.
+Finora stiamo solo modificando progressivamente il codice per aumentare la flessibilità del nostro workflow, ottenendo sempre lo stesso risultato finale.
 
 !!! nota
 
